@@ -16,22 +16,22 @@ function filter(list, predicate) {
     return new_list;
 }
 
+function map(list, iteratee) {
+    var new_list = [];
+    for(var i = 0, len = list.length; i < len; i++) {
+        new_list.push(iteratee(list[i]));
+    }
+    return new_list;
+}
+
 var users_under_30 = filter(users, function(users) { return users.age < 30 });
 console.log(users_under_30.length);
 
-var ages = [];
-for(var i = 0, len = users_under_30.length; i < len; i++) {
-    ages.push(users_under_30[i].age);
-}
+var ages = map(users_under_30, function(users) { return users.age });
 console.log(ages);
-
 
 var users_over_30 = filter(users, function(users) { return users.age >= 30 });
 console.log(users_under_30.length);
 
-//
-var names = [];
-for(var i = 0, len = users_over_30.length; i < len; i++) {
-    names.push(users_over_30[i].name);
-}
+var names = map(users_over_30, function(users) {return users.name });
 console.log(names);
