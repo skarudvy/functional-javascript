@@ -24,14 +24,16 @@ function map(list, iteratee) {
     return new_list;
 }
 
-var users_under_30 = filter(users, function(users) { return users.age < 30 });
-console.log(users_under_30.length);
+var ages = map(
+    filter(users, function(users) { return users.age < 30 }),
+    function(users) { return users.age });
 
-var ages = map(users_under_30, function(users) { return users.age });
+console.log(ages.length);
 console.log(ages);
 
-var users_over_30 = filter(users, function(users) { return users.age >= 30 });
-console.log(users_under_30.length);
+var names = map(
+    filter(users, function(users) { return users.age >= 30 }), 
+    function(users) {return users.name });
 
-var names = map(users_over_30, function(users) {return users.name });
+console.log(names.length);
 console.log(names);
