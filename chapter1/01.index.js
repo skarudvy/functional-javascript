@@ -34,4 +34,5 @@ var names = [];
 for(var i = 0, len = temp_users.length; i < len; i++) {
     names.push(temp_users[i].name);
 }
+
 console.log(names);
