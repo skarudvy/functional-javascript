@@ -1,0 +1,44 @@
+<script src="../lib/fx.js"></script>
+
+<h1>take</h1>
+
+## take
+
+<script>
+    const add = (a,b) => a + b;
+    const take = curry((limit, iter) => {
+        let res = [];
+
+        for(const a of iter) {
+            res.push(a);
+
+            if(res.length === limit) {
+                return res;
+            }
+        }
+
+        return res;
+    });
+    
+    console.time('range take');
+    log(take(5, range(100000)));  // 배열을 만들고 그중에 5개를 가져옴 
+    console.timeEnd('range take');
+
+    console.time('L.range take');
+    log(take(5, L.range(100000))); // 지연성으로 5개만 가져올 수 있다.
+    console.timeEnd('L.range take');
+
+    go(
+        range(100),
+        take(10),
+        reduce(add),
+        log
+    );
+
+    go(
+        L.range(100),
+        take(10),
+        reduce(add),
+        log
+    );
+</script>

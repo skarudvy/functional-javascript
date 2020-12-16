@@ -5,10 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "type": "chrome",
             "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}\\chapter1\\01-22.index.js"
+            "name": "Launch Chrome against localhost",
+            "url": "${workspaceFolder}\\lecture\\07-07.index.html",
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }
